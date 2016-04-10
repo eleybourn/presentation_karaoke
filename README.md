@@ -5,7 +5,7 @@ Wikipedia describes presentation karaoke as "an improvisational activity in whic
 
 ## How to run
 1. Download the application - it is designed to be downloaded and run directly on your local computer. 
-2. Run "index.html" - it's pure HTML and Javascript, so nothing to install. 
+2. Run "index.html" - it's pure HTML and Javascript[2], so nothing to install. 
 3. Select a topic set. You can change or add topics to the potential list (a must if you select Freeform)
 4. Select a duration. Default is 2 minutes (120 seconds) - 1 minute (60 seconds) is faster and better for novice presenters. 
 5. Press "Go" - I'm assuming I don't need to tell you to plug it into a projector or go fullscreen :-)
@@ -27,3 +27,4 @@ While this application is ready to use right now, there are a few things left to
 3. Testing on different browsers and systems (so far only tested on Chrome). 
 
 [1] https://en.wikipedia.org/wiki/Powerpoint-Karaoke
+[2] Application based on jquery and the supersized jquery library (http://buildinternet.com/project/supersized/) 
