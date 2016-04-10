@@ -22,12 +22,16 @@ Wikipedia describes presentation karaoke as "an improvisational activity in whic
 
 ## Todo
 While this application is ready to use right now, there are a few things left to do. 
+
 1. Validate the license on the images in the slides_unval directory. Any images that are not public domain, creative commons or free to use need to be deleted and replaced. 
 2. Add more topic sets. Currently only "Agile" and "Freeform"
 3. Testing on different browsers and systems (so far only tested on Chrome). 
 
-If you want to help me and add new slides, because of the limitation of Javascript, you need to add the slides then edit js/pk.js to add each file to the list of potential slides. If anyone knows a better way, please feel free to issue a pull request (maybe some sort of autogenerating batch file). 
-e.g. {image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
+If you want to help me and add new slides, because of the limitation of Javascript, you need to add the slides then edit js/pk.js to add each file to the list of potential slides. If anyone knows a better way, please feel free to issue a pull request (maybe some sort of autogenerating batch file). e.g.
+
+```javascript
+{image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
+```
  
 [1] https://en.wikipedia.org/wiki/Powerpoint-Karaoke
 [2] Application based on jquery and the supersized jquery library (http://buildinternet.com/project/supersized/) 
