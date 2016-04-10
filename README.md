@@ -26,5 +26,8 @@ While this application is ready to use right now, there are a few things left to
 2. Add more topic sets. Currently only "Agile" and "Freeform"
 3. Testing on different browsers and systems (so far only tested on Chrome). 
 
+If you want to help me and add new slides, because of the limitation of Javascript, you need to add the slides then edit js/pk.js to add each file to the list of potential slides. If anyone knows a better way, please feel free to issue a pull request (maybe some sort of autogenerating batch file). 
+e.g. {image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
+ 
 [1] https://en.wikipedia.org/wiki/Powerpoint-Karaoke
 [2] Application based on jquery and the supersized jquery library (http://buildinternet.com/project/supersized/) 
