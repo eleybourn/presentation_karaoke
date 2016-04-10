@@ -1,7 +1,7 @@
 # Presentation Karaoke
 1 minute, random topic, random slides --- GO!
 
-Wikipedia describes presentation karaoke as "an improvisational activity in which a participant must deliver a presentation based on a set of slides that they have never seen before." What it doesn't say is that it is absolutely hilarious and fun to play.
+Wikipedia describes presentation karaoke as "an improvisational activity in which a participant must deliver a presentation based on a set of slides that they have never seen before."[1] What it doesn't say is that it is absolutely hilarious and fun to play.
 
 ## How to run
 1. Download the application - it is designed to be downloaded and run directly on your local computer. 
@@ -25,3 +25,5 @@ While this application is ready to use right now, there are a few things left to
 1. Validate the license on the images in the slides_unval directory. Any images that are not public domain, creative commons or free to use need to be deleted and replaced. 
 2. Add more topic sets. Currently only "Agile" and "Freeform"
 3. Testing on different browsers and systems (so far only tested on Chrome). 
+
+[1] https://en.wikipedia.org/wiki/Powerpoint-Karaoke
