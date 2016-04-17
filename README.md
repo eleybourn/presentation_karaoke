@@ -3,6 +3,8 @@
 
 Wikipedia describes presentation karaoke as "an improvisational activity in which a participant must deliver a presentation based on a set of slides that they have never seen before."[1] What it doesn't say is that it is absolutely hilarious and fun to play.
 
+It's designed to be downloaded and run locally, but you can also try it out here: http://theagiledirector.com/presentation-karaoke/
+
 ## How to run
 1. Download the application - it is designed to be downloaded and run directly on your local computer. 
 2. Run "index.html" - it's pure HTML and Javascript[2], so nothing to install. 
