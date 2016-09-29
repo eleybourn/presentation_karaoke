@@ -134,6 +134,7 @@ jQuery(function($){
            {image : './slides/tumblr_o3gw1fNLIQ1sfie3io1_1280.jpg', title : 'Pearl diver collecting shells from the beds of Torres Strait, Queensland / Frank Hurley - Image Credit: no known copyright restrictions ', url : 'https://www.flickr.com/photos/national_library_of_australia_commons/25269617161/'},
            {image : './slides/tumblr_o3ygfkd8Rr1sfie3io1_1280.jpg', title : 'Ballaghbema Pass, Glencar, Co. Kerry - Image Credit: no known copyright restrictions ', url : 'https://www.flickr.com/photos/nlireland/25581862336/'},
            {image : './slides/your_blood.jpg', title : 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)', url : 'https://shifthappens.wikispaces.com'},
+           {image : './slides_unval/d4467caf-cb42-4536-93d2-f439f91798fa-original.jpeg', title : 'Unknown', url : ''},
            {image : './slides_unval/baby_butt.png', title : 'Unknown', url : ''},
            {image : './slides_unval/band.jpg', title : 'Unknown', url : ''},
            {image : './slides_unval/beaver_fail.jpg', title : 'Unknown', url : ''},
