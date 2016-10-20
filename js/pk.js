@@ -58,7 +58,13 @@ var topics = {
 		"Your last holiday",
 		"Your weekend",
 		"#noprojects",
-		"#noestimates"
+		"#noestimates",
+		"Zeppelins and Airships",
+		"Lean Startup",
+		"Road Trip",
+		"Cat People",
+		"Heavy Metal",
+		"Baby Boomers vs Millenials"
 	]
 };
 
@@ -80,6 +86,7 @@ jQuery(function($){
 		slides 					:  	[			// Slideshow Images
            {image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
            {image : './slides/2015-10-30 14.40.12.jpg', title : 'The winning marshmallow - Image Credit: Evan Leybourn', url : ''},
+           {image : './slides_unval/guzzle-buddy-drinking-wine.jpg', title : 'Guzzle Buddy - Image Credit: Guzzle Buddy', url : 'http://www.guzzlebuddy.com/'},
            {image : './slides/3000_books.jpg', title : '3000 books - Image Credit: Unknown', url : ''},
            {image : './slides/3671171673_2e9acc5990.jpg', title : 'You\'ll never get to work on time - Image Credit: Unknown', url : ''},
            {image : './slides/4053123799_23189bc35b_o.jpg', title : 'Squirrel - Image Credit: Tomi Tapio K ', url : 'https://www.flickr.com/photos/tomitapio/4053123799'},
@@ -134,7 +141,6 @@ jQuery(function($){
            {image : './slides/tumblr_o3gw1fNLIQ1sfie3io1_1280.jpg', title : 'Pearl diver collecting shells from the beds of Torres Strait, Queensland / Frank Hurley - Image Credit: no known copyright restrictions ', url : 'https://www.flickr.com/photos/national_library_of_australia_commons/25269617161/'},
            {image : './slides/tumblr_o3ygfkd8Rr1sfie3io1_1280.jpg', title : 'Ballaghbema Pass, Glencar, Co. Kerry - Image Credit: no known copyright restrictions ', url : 'https://www.flickr.com/photos/nlireland/25581862336/'},
            {image : './slides/your_blood.jpg', title : 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)', url : 'https://shifthappens.wikispaces.com'},
-           {image : './slides_unval/d4467caf-cb42-4536-93d2-f439f91798fa-original.jpeg', title : 'Unknown', url : ''},
            {image : './slides_unval/baby_butt.png', title : 'Unknown', url : ''},
            {image : './slides_unval/band.jpg', title : 'Unknown', url : ''},
            {image : './slides_unval/beaver_fail.jpg', title : 'Unknown', url : ''},
