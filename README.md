@@ -1,7 +1,7 @@
 # Presentation Karaoke
 2 minutes, random topic, random slides --- GO!
 
-*This is a fork and adaptation from:*
+*This is a fork and adaptation of:*
 https://github.com/eleybourn/presentation_karaoke
 
 ## Demo
