@@ -6,8 +6,8 @@ var default_config = {
 	transition      : 1, 		// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
 	transition_speed: 500,		// Speed of transition
 
-	language      : 'EN',
-	custom_strings: {}
+	language          : 'EN',
+	custom_translation: {}
 };
 
 config = $.extend(default_config, config);
@@ -30,7 +30,7 @@ var supersized_setup = {
 function translate() {
 	var strings = $.extend(
 		$.extend(translations['EN'], translations[config.language]),
-		config.custom_strings
+		config.custom_translation
 	);
 
 	for (var string in strings) {
