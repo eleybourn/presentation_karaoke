@@ -1,7 +1,15 @@
 # Presentation Karaoke
 2 minutes, random topic, random slides --- GO!
 
-*This is a fork and adaptation from https://github.com/eleybourn/presentation_karaoke*
+*This is a fork and adaptation from:*
+https://github.com/eleybourn/presentation_karaoke
+
+## Demo
+You can see a working demo of this version on:
+https://regl.io/presentation_karaoke
+
+The original version by @eleybourn can be seen in action here:
+http://theagiledirector.com/presentation-karaoke
 
 ## How to run
 It is designed to be downloaded and run directly on your local computer.
