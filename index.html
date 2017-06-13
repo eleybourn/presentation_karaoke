@@ -40,13 +40,17 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<script type="text/javascript" src="js/pk.js"></script>
+	<script type="text/javascript" src="config/config.js"></script>
+	<script type="text/javascript" src="config/topics.js"></script>
+	<script type="text/javascript" src="config/slides.js"></script>
+	<script type="text/javascript" src="js/translations.js"></script>
+	<script type="text/javascript" src="js/karaoke.js"></script>
 
 </head>
 
 <body>
 
-<div class="container" id="intro">
+<div class="container" id="choose_group">
 	<div class="row">
 		<div class="col-sm-6">
 			<h3 style="font-size: 5vh;">Subject Area</h3>
@@ -57,19 +61,21 @@
 		<div class="col-sm-6">
 			<h3 style="font-size: 5vh;">Possible topics</h3>
 			<div class="div_topics well">
-				<ul name="topics" id="topics" class="topics list-unstyled">
+				<ul id="topics" class="topics list-unstyled">
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<input type="button" class="btn btn-success btn-go" id="go" name="go" value="Go &raquo;" />
+			<input type="button" class="btn btn-success btn-go" id="go" name="go" value="Go" />
 		</div>
 	</div>
 </div>
 
-<div class="container" id="play">
+<div class="container" id="choose_topic">
+	<button onclick="restart()" class="btn btn-default btn-back">Back</button>
+
 	<div class="row" style="height:60vh">
 		<div class="col-sm-12">
 
@@ -83,12 +89,15 @@
 			<input type="button" id="again" name="again" value="New Topic" class="btn btn-warning" />
 		</div>
 		<div class="col-sm-6">
-			<input type="button" id="playbut" name="playbut" value="Play &raquo;" class="btn btn-success" />
+			<input type="button" id="play" name="play" value="Play" class="btn btn-success" />
 		</div>
 	</div>
 </div>
 
-<div class="container" id="count_down">
+<div class="container message" id="count_down">
+</div>
+<div class="container message" id="thank_you">
+	Thank you!
 </div>
 
 <!--Time Bar-->

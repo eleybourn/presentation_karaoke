@@ -71,48 +71,23 @@ h3 {
 }
 
 .container {
-    display: block;
+    display:          none;
     background-color: white;
-    padding:9vh 10vw;
-    width:100vw;
-    height:100vh;
-    position: fixed;
-    z-index:10;
+    padding:          5vh 10vw;
+    width:            100vw;
+    height:           100vh;
+    position:         fixed;
+    z-index:          10;
 }
-#intro {
-}
-#play,
-#count_down {
-    display: none;
-}
-#count_down {
-    font-size: 30vh;
-    padding-top:25vh;
-    text-align: center;
-}
+
 #supersized {
     display: none;
-    z-index: 9;
 }
 
-ul#demo-block {
-    margin: 0 15px 15px 15px;
-}
-
-ul#demo-block li {
-    margin:     0 0 10px 0;
-    padding:    10px;
-    display:    inline;
-    float:      left;
-    clear:      both;
-    color:      #aaaaaa;
-    background: url('img/bg-black.png');
-    font:       11px Helvetica, Arial, sans-serif;
-}
-
-ul#demo-block li a {
-    color:       #eeeeee;
-    font-weight: bold;
+.message {
+    font-size:   30vh;
+    padding-top: 25vh;
+    text-align:  center;
 }
 
 textarea {
@@ -123,16 +98,25 @@ textarea {
     font-size: 3em;
 }
 
-.groups label {
-    font-weight: normal;
-    color: #999;
+.groups input[type="radio"] {
+    display: none;
 }
-.groups input[type="radio"]:checked+label {
-    color: #333;
+
+.groups label {
+    font-weight:   normal;
+    color:         #666666;
+    width:         100%;
+    padding:       2px 12px;
+    border-radius: 4px;
+}
+
+.groups input[type="radio"]:checked + label {
+    color:            #333333;
+    background-color: #dddddd;
 }
 
 .div_topics {
-    font-size:     3em;
+    font-size:     2.2em;
     height:        52vh;
     margin-bottom: 2vh;
     overflow-y:    scroll;
@@ -147,9 +131,15 @@ textarea {
 }
 
 .btn {
-    font-size: 10vh;
+    font-size:  10vh;
     text-align: center;
-    width: 100%;
+    width:      100%;
 }
-.btn-go {
+
+.btn-back {
+    font-size: 1em;
+    position:  absolute;
+    left:      10px;
+    top:       10px;
+    width:     auto;
 }
