@@ -119,7 +119,7 @@ textarea {
     font-size:     2.2em;
     height:        52vh;
     margin-bottom: 2vh;
-    overflow-y:    scroll;
+    overflow-y:    auto;
     overflow-x:    hidden;
 }
 
