@@ -80,7 +80,15 @@ function restart() {
 function pick_topic() {
 	$('.container').hide();
 	$('#choose_topic').show();
-	$('#your_topic').text(my_topics[Math.floor(Math.random() * my_topics.length)]);
+
+	var new_topic = my_topics[Math.floor(Math.random() * my_topics.length)];
+
+	if (new_topic == $('#your_topic').text()) {
+		pick_topic();
+		return;
+	}
+
+	$('#your_topic').text(new_topic);
 	$('#your_topic').quickfit({max: 30});
 }
 

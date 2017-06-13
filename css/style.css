@@ -117,10 +117,14 @@ textarea {
 
 .div_topics {
     font-size:     2.2em;
-    height:        52vh;
+    height:        60vh;
     margin-bottom: 2vh;
     overflow-y:    auto;
     overflow-x:    hidden;
+}
+
+.topics {
+    margin-bottom: 0;
 }
 
 .topics li {
