@@ -285,10 +285,10 @@
 			// Start slideshow if enabled
 			if (base.options.slideshow && slides.length > 1){
 
-	    		// Start slideshow if autoplay enabled
-	    		if (base.options.autoplay && slides.length > 1){
-	    			vars.slideshow_interval = setInterval(base.nextSlide, base.options.slide_interval);	// Initiate slide interval
-				}else{
+    		// Start slideshow if autoplay enabled
+    		if (base.options.autoplay && slides.length > 1){
+    			vars.slideshow_interval = setInterval(base.nextSlide, base.options.slide_interval);	// Initiate slide interval
+				} else{
 					vars.is_paused = true;	// Mark as paused
 				}
 
@@ -298,7 +298,6 @@
 				});
 
 			}
-
 			// Adjust image when browser is resized
 			$(window).resize(function(){
 	    		base.resizeNow();
@@ -462,22 +461,21 @@
         /* Next Slide
 		----------------------------*/
 		base.nextSlide = function(){
-
+			console.log('going to next slide')
 			if(vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
 				else vars.in_animation = true;		// Otherwise set animation marker
 
-		    clearInterval(vars.slideshow_interval);	// Stop slideshow
+	    clearInterval(vars.slideshow_interval);	// Stop slideshow
 
-		    var slides = base.options.slides,					// Pull in slides array
-				liveslide = base.$el.find('.activeslide');		// Find active slide
-				$('.prevslide').removeClass('prevslide');
-				liveslide.removeClass('activeslide').addClass('prevslide');	// Remove active class & update previous slide
+	    var slides = base.options.slides,					// Pull in slides array
+			liveslide = base.$el.find('.activeslide');		// Find active slide
+			$('.prevslide').removeClass('prevslide');
+			liveslide.removeClass('activeslide').addClass('prevslide');	// Remove active class & update previous slide
 
 			// Get the slide number of new slide
 			vars.current_slide + 1 == slides.length ? vars.current_slide = 0 : vars.current_slide++;
-
-		    var nextslide = $(base.el+' li:eq('+vars.current_slide+')'),
-		    	prevslide = base.$el.find('.prevslide');
+	    var nextslide = $(base.el+' li:eq('+vars.current_slide+')'),
+	    	prevslide = base.$el.find('.prevslide');
 
 			// If hybrid mode is on drop quality for transition
 			if (base.options.performance == 1) base.$el.removeClass('quality').addClass('speed');
@@ -674,11 +672,10 @@
 		/* Play/Pause Toggle
 		----------------------------*/
 		base.playToggle = function(){
-
 			if (vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
 
 			if (vars.is_paused){
-
+				console.log('starting slideshow');
 				vars.is_paused = false;
 
 				// Call theme function for play
@@ -687,17 +684,16 @@
 				// Resume slideshow
 	        	vars.slideshow_interval = setInterval(base.nextSlide, base.options.slide_interval);
 
-        	}else{
+    	} else{
+    		console.log('stopping slideshow');
+    		vars.is_paused = true;
 
-        		vars.is_paused = true;
+    		// Call theme function for pause
+    		if( typeof theme != 'undefined' && typeof theme.playToggle == "function" ) theme.playToggle('pause');
+    		// Stop slideshow
+    		clearInterval(vars.slideshow_interval);
 
-        		// Call theme function for pause
-        		if( typeof theme != 'undefined' && typeof theme.playToggle == "function" ) theme.playToggle('pause');
-
-        		// Stop slideshow
-        		clearInterval(vars.slideshow_interval);
-
-       		}
+   		}
 
 		    return false;
 
@@ -706,9 +702,10 @@
     	/* Go to random guaranteed slide
 		----------------------------*/
       base.goToRandomGuaranteed = function(){
-        // base.goTo() starts counting from 1 
+        // base.goTo() starts counting from 1
         slideIndex = Math.ceil(Math.random() * guaranteedSlides.length + vars.original_slide_length);
         console.log('bozz slide number: ' + slideIndex);
+        vars.is_paused = false;
         if (base.goTo(slideIndex) == false) {
           console.log('goTo failed');
         }
@@ -813,7 +810,7 @@
 
 				base.nextSlide();
 
-			}else if (place == 'prev'){
+			} else if (place == 'prev'){
 
 				vars.current_slide - 1 < 0  ? loadSlide = base.options.slides.length - 1 : loadSlide = vars.current_slide - 1;	// Determine next slide
 
@@ -865,7 +862,6 @@
 			}
 
 			vars.in_animation = false;
-
 			// Resume slideshow
 			if (!vars.is_paused && base.options.slideshow){
 				vars.slideshow_interval = setInterval(base.nextSlide, base.options.slide_interval);
