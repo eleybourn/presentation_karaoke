@@ -471,3 +471,6 @@ var slides = [			// Slideshow Images
 	{image: './slides_unval/wrong_way.jpg', title: 'Unknown', url: ''},
 	{image: './slides_unval/young_hero.jpg', title: 'Unknown', url: ''},
 ];
+
+var guaranteedSlides = [
+];

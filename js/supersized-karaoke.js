@@ -54,7 +54,7 @@
 				markerContent,
 				thumbMarkers = '',
 				thumbImage,
-        allSlides = base.options.slides.concat(base.options.guaranteedSlides);
+        allSlides = base.options.slides.concat(guaranteedSlides);
 
 			while(thisSlide <= allSlides.length -1){
 				//Determine slide link content
@@ -102,7 +102,7 @@
 			// Add in thumbnails
 			if (base.options.thumbnail_navigation){
 				// Load previous thumbnail
-				vars.current_slide - 1 < 0  ? prevThumb = base.options.slides.length - 1 : prevThumb = vars.current_slide - 1;
+				vars.current_slide - 1 < 0  ? prevThumb = slides.length - 1 : prevThumb = vars.current_slide - 1;
 				$(vars.prev_thumb).show().html($("<img/>").attr("src", base.options.slides[prevThumb].image));
 
 				// Load next thumbnail
@@ -122,7 +122,7 @@
 			if (base.options.start_slide){
 				vars.current_slide = base.options.start_slide - 1;
 			}else{
-				vars.current_slide = Math.floor(Math.random()*base.options.slides.length);	// Generate random slide number
+				vars.current_slide = Math.floor(Math.random()*slides.length);	// Generate random slide number
 			}
 
 			// If links should open in new window
@@ -145,13 +145,13 @@
 
 			/*-----Load initial set of images-----*/
 
-			if (base.options.slides.length > 1){
-				if(base.options.slides.length > 2){
+			if (slides.length > 1){
+				if (slides.length > 2){
 					// Set previous image
-					vars.current_slide - 1 < 0  ? loadPrev = base.options.slides.length - 1 : loadPrev = vars.current_slide - 1;	// If slide is 1, load last slide as previous
-					var imageLink = (base.options.slides[loadPrev].url) ? "href='" + base.options.slides[loadPrev].url + "'" : "";
+					vars.current_slide - 1 < 0  ? loadPrev = slides.length - 1 : loadPrev = vars.current_slide - 1;	// If slide is 1, load last slide as previous
+					var imageLink = (slides[loadPrev].url) ? "href='" + slides[loadPrev].url + "'" : "";
 
-					var imgPrev = $('<img src="'+base.options.slides[loadPrev].image+'"/>');
+					var imgPrev = $('<img src="'+slides[loadPrev].image+'"/>');
 					var slidePrev = base.el+' li:eq('+loadPrev+')';
 					imgPrev.appendTo(slidePrev).wrap('<a ' + imageLink + linkTarget + '></a>').parent().parent().addClass('image-loading prevslide');
 
@@ -179,12 +179,12 @@
 				if( typeof theme != 'undefined' && typeof theme._init == "function" ) theme._init();	// Load Theme
 			});
 
-			if (base.options.slides.length > 1){
+			if (slides.length > 1){
 				// Set next image
-				vars.current_slide == base.options.slides.length - 1 ? loadNext = 0 : loadNext = vars.current_slide + 1;	// If slide is last, load first slide as next
-				imageLink = (base.options.slides[loadNext].url) ? "href='" + base.options.slides[loadNext].url + "'" : "";
+				vars.current_slide == slides.length - 1 ? loadNext = 0 : loadNext = vars.current_slide + 1;	// If slide is last, load first slide as next
+				imageLink = (slides[loadNext].url) ? "href='" + slides[loadNext].url + "'" : "";
 
-				var imgNext = $('<img src="'+base.options.slides[loadNext].image+'"/>');
+				var imgNext = $('<img src="'+slides[loadNext].image+'"/>');
 				var slideNext = base.el+' li:eq('+loadNext+')';
 				imgNext.appendTo(slideNext).wrap('<a ' + imageLink + linkTarget + '></a>').parent().parent().addClass('image-loading');
 
@@ -214,7 +214,7 @@
 			$('.load-item').show();
 
 			// Keyboard Navigation
-			if (base.options.keyboard_nav){
+			if (keyboard_nav){
 				$(document.documentElement).keyup(function (event) {
 
 					if(vars.in_animation) return false;		// Abort if currently animating
@@ -283,10 +283,10 @@
 			}
 
 			// Start slideshow if enabled
-			if (base.options.slideshow && base.options.slides.length > 1){
+			if (base.options.slideshow && slides.length > 1){
 
 	    		// Start slideshow if autoplay enabled
-	    		if (base.options.autoplay && base.options.slides.length > 1){
+	    		if (base.options.autoplay && slides.length > 1){
 	    			vars.slideshow_interval = setInterval(base.nextSlide, base.options.slide_interval);	// Initiate slide interval
 				}else{
 					vars.is_paused = true;	// Mark as paused
@@ -478,7 +478,7 @@
 				liveslide.removeClass('activeslide').addClass('prevslide');	// Remove active class & update previous slide
 
 			// Get the slide number of new slide
-			vars.current_slide + 1 == base.options.slides.length ? vars.current_slide = 0 : vars.current_slide++;
+			vars.current_slide + 1 == slides.length ? vars.current_slide = 0 : vars.current_slide++;
 
 		    var nextslide = $(base.el+' li:eq('+vars.current_slide+')'),
 		    	prevslide = base.$el.find('.prevslide');
