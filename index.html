@@ -2,103 +2,120 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-	<!--
-		Supersized - Fullscreen Slideshow jQuery Plugin
-		Version : 3.2.7
-		Site	: www.buildinternet.com/project/supersized
-		
-		Author	: Sam Dunn
-		Company : One Mighty Roar (www.onemightyroar.com)
-		License : MIT License / GPL License
-	-->
+<!--
+	Supersized - Fullscreen Slideshow jQuery Plugin
+	Version : 3.2.7
+	Site	: www.buildinternet.com/project/supersized
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	Author	: Sam Dunn
+	Company : One Mighty Roar (www.onemightyroar.com)
+	License : MIT License / GPL License
+-->
 
-		<title>Presentation Karaoke</title>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="css/supersized.shutter.css" type="text/css" media="screen" />
-		
-		<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>-->
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
-		
-		<script type="text/javascript" src="js/supersized-karaoke.js"></script>
-		<script type="text/javascript" src="js/jquery.quickfit.js"></script>
-		<script type="text/javascript" src="js/supersized.shutter.min.js"></script>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-		<script type="text/javascript" src="js/pk.js"></script>
-		
-	</head>
+	<title>Presentation Karaoke</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/supersized.shutter.css" type="text/css" media="screen" />
+
+	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+
+	<script type="text/javascript" src="js/supersized.karaoke.js"></script>
+	<script type="text/javascript" src="js/jquery.quickfit.js"></script>
+	<script type="text/javascript" src="js/supersized.shutter.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript" src="config/config.js"></script>
+	<script type="text/javascript" src="config/topics.js"></script>
+	<script type="text/javascript" src="config/slides.js"></script>
+	<script type="text/javascript" src="js/translations.js"></script>
+	<script type="text/javascript" src="js/karaoke.js"></script>
+
+</head>
 
 <body>
 
-	<div style='display: block; background-color: white; padding-top:9vh; padding-left: 10vw; width:100vw; height:100vh; position: fixed; z-index:10;' id='intro'>
-		<div style='width: 38vw; float:left;'>
-			<h3 style='font-size: 5vh;'>Subject Area</h3>
-			<select class='' name='topic' id='topic' style='width:38vw; height:21vh; font-size: 15vh;'>
-				<option selected="selected">Agile</option>
-				<option>Freeform</option>
-			</select>
-			<h3 style='font-size: 5vh;'>Karaoke Time</h3>
-			<input class='' name='duration' id='duration' value='120' style='width:38vw; height:21vh; font-size: 15vh; margin-bottom: 2vh;' />
-		</div>
-		<div style='width: 4vw; float:left; text-align: center;'>
-			<span style='font-size: 6vw;'>&raquo;</span>
-		</div>
-		<div style='width: 38vw; float:left;'>
-			<h3 style='font-size: 5vh;'>Possible topics</h3>
-			<textarea name='topics' id='topics' style='width:100%; height: 52vh; font-size: 6vh; margin-bottom: 2vh;'>
-			</textarea>
-		</div>
-		<div style='width: 80vw; clear:both; text-align: center;'>
-			<input type='button' id='go' name='go' value='&nbsp;&nbsp;Go &raquo;&nbsp;&nbsp;' style='font-size: 15vh;' />
-		</div>
-	</div>
-	<div style='display: none; background-color: white; padding-top: 15vh; width:100vw; height:100vh; position: fixed; z-index:10;' id='play'>
-		<div style='clear:both; text-align: center;'>
-			<div style="font-size: 10vh;">Your topic is</div>
-			<div style="font-size: 30vh; white-space:nowrap;" id="your_topic"></div>
-		</div>
-		<div style='padding-left: 5vw; clear:both; float: left;'>
-			<input type='button' id='again' name='again' value='&nbsp;&nbsp;New Topic&nbsp;&nbsp;' style='font-size: 10vh;' />
-		</div>
-		<div style='padding-right: 5vw; float: right;'>
-			<input type='button' id='playbut' name='playbut' value='&nbsp;&nbsp;Play &raquo;&nbsp;&nbsp;' style='font-size: 10vh;' />
-		</div>
-	</div>
-	<div style='display: none; background-color: white; font-size: 30vh; padding-top:25vh; text-align: center; width:100vw; height:100vh; position: fixed; z-index:10;' id='count_down'>
-	</div>
-	
-	<!--Time Bar-->
-	<div id="progress-back" class="load-item">
-		<div id="progress-bar"></div>
-	</div>
-	
-	<!--Control Bar-->
-	<div id="controls-wrapper" class="load-item">
-		<div id="controls">
-			
-			<!--Slide captions displayed here-->
-			<div id="slidecaption"></div>
-			
-		</div>
-	</div>
+<div class="container" id="choose_group">
+	<div class="row">
+		<div class="col-sm-6">
+			<h3 style="font-size: 5vh;">Subject Area</h3>
+			<div id="groups" class="groups well">
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<h3 style="font-size: 5vh;">Possible topics</h3>
+			<div class="div_topics well">
+				<ul id="topics" class="topics list-unstyled">
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<input type="button" class="btn btn-success btn-go" id="go" name="go" value="Go" />
+		</div>
+	</div>
+</div>
+
+<div class="container" id="choose_topic">
+	<button onclick="restart()" class="btn btn-default btn-back">Back</button>
+
+	<div class="row" style="height:60vh">
+		<div class="col-sm-12">
+
+			<h3 style="font-size: 10vh;">Your topic is</h3>
+			<div style="font-size: 30vh; white-space:nowrap;" id="your_topic"></div>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<input type="button" id="again" name="again" value="New Topic" class="btn btn-warning" />
+		</div>
+		<div class="col-sm-6">
+			<input type="button" id="play" name="play" value="Play" class="btn btn-success" />
+		</div>
+	</div>
+</div>
+
+<div class="container message" id="count_down">
+</div>
+<div class="container message" id="thank_you">
+	Thank you!
+</div>
+
+<!--Time Bar-->
+<div id="progress-back" class="load-item">
+	<div id="progress-bar"></div>
+</div>
+
+<!--Control Bar-->
+<div id="controls-wrapper" class="load-item">
+	<div id="controls">
+
+		<!--Slide captions displayed here-->
+		<div id="slidecaption"></div>
+
+	</div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

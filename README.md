@@ -1,39 +1,59 @@
 # Presentation Karaoke
-1 minute, random topic, random slides --- GO!
+2 minutes, random topic, random slides --- GO!
 
-Wikipedia describes presentation karaoke as "an improvisational activity in which a participant must deliver a presentation based on a set of slides that they have never seen before."[1] What it doesn't say is that it is absolutely hilarious and fun to play.
+*This is a fork and adaptation of:*
+https://github.com/eleybourn/presentation_karaoke
 
-It's designed to be downloaded and run locally, but you can also try it out here: http://theagiledirector.com/presentation-karaoke/
+## Demo
+You can see a working demo of this version on:
+https://regl.io/presentation_karaoke
+
+The original version by @eleybourn can be seen in action here:
+http://theagiledirector.com/presentation-karaoke
 
 ## How to run
-1. Download the application - it is designed to be downloaded and run directly on your local computer. 
-2. Run "index.html" - it's pure HTML and Javascript[2], so nothing to install. 
-3. Select a topic set. You can change or add topics to the potential list (a must if you select Freeform)
-4. Select a duration. Default is 2 minutes (120 seconds) - 1 minute (60 seconds) is faster and better for novice presenters. 
-5. Press "Go" - I'm assuming I don't need to tell you to plug it into a projector or go fullscreen :-)
+It is designed to be downloaded and run directly on your local computer.
+It's pure HTML and Javascript[2], so nothing to install.
+
+1. **Download the application** 
+2. **Run `index.html`**
+3. **Select a topic set**
+4. **Press "Go"**
 
 ## How to play
-1. Press Play (you can press "New Topic" if you want to pick another random topic)
-2. Start talking. The slides will auto-advance after 10 seconds
-3. Be funny
-4. Don't read the slides, use them as a prompt only
-5. Tell a story
-6. Be funny
-7. Stop talking after 2 minutes (or however long was set)
-8. Next person
+1. **Press "Play"**<br>You can press "New Topic" if you want to pick another random topic
+2. **Start talking.**<br>The slides will auto-advance after 10 seconds
+3. **Be funny**
+4. **Don't read the slides**<br>Use them as a prompt only
+5. **Tell a story**
+6. **Be funny**
+7. **Stop talking after 2 minutes**
+8. **Next person**
 
-## Todo
-While this application is ready to use right now, there are a few things left to do. 
+## Topics
+You can add/change topics in the `/config/topics.js` file.
 
-1. Validate the license on the images in the slides_unval directory. Any images that are not public domain, creative commons or free to use need to be deleted and replaced. 
-2. Add more topic sets. Currently only "Agile" and "Freeform"
-3. Testing on different browsers and systems (so far only tested on Chrome). 
+## Slides
+You can add/change slides in the `/config/slides.js` file.
 
-If you want to help me and add new slides, because of the limitation of Javascript, you need to add the slides then edit js/pk.js to add each file to the list of potential slides. If anyone knows a better way, please feel free to issue a pull request (maybe some sort of autogenerating batch file). e.g.
-
-```javascript
-{image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
-```
- 
-[1] https://en.wikipedia.org/wiki/Powerpoint-Karaoke
-[2] Application based on jquery and the supersized jquery library (http://buildinternet.com/project/supersized/) 
+## Configuration
+You can configure a number of properties in the `/config/config.js` file:
+- **duration**<br>
+	Duration of presentation in seconds<br>
+	*Default: 120*
+- **slide_interval**<br>
+	Length between transitions in milliseconds<br>
+    *Default: 1000*
+- **transition**<br>
+	0 (None), 1 (Fade), 2 (Slide Top), 3 (Slide Right), 4 (Slide Bottom), 5 (Slide Left), 6 (Carousel Right), 7 (Carousel Left)<br>
+	*Default: 1*
+- **transition_speed**<br>
+	Speed of transition in milliseconds<br>
+	*Default: 500*
+- **language**<br>
+	The language to use.<br>
+	Currently only available in EN ()English) and NL (Dutch)<br>
+    *Default: EN*
+- **custom_translation**<br>
+	Here you can override the translation of the strings.<br>
+	See the `js/translations.js` file to see what strings you can translate.
