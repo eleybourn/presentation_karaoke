@@ -71,17 +71,17 @@ var topics = {
 var my_topics = [];
 
 jQuery(function($){
-	
+
 	$.supersized({
 		random                  :   1,			// Start slide (0 is random)
 		fit_always				:   1,
-	
+
 		// Functionality
 		slide_interval          :   10000,		// Length between transitions
 		transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
 		transition_speed		:	500,		// Speed of transition
-												   
-		// Components							
+
+		// Components
 		slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
 		slides 					:  	[			// Slideshow Images
            {image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
@@ -372,7 +372,7 @@ jQuery(function($){
          {image : './slides/prata-bozz.jpg', title : 'Prata Bozz', url : ''},
          {image : './slides/cupcake-bozz.jpg', title : 'Cupcake Bozz', url : ''},
        ]
-		
+
 	});
 });
 
