@@ -473,4 +473,6 @@ var slides = [			// Slideshow Images
 ];
 
 var guaranteedSlides = [
+  // Add slides here in the same format as above to guarantee that a random one
+  // will appear during each karaoke session.
 ];

@@ -152,11 +152,11 @@ function insert_random_guaranteed(){
   if (isNaN(activeIndex)) {
     activeIndex = 0;
   }
-  presentationLength = $("#duration").val() / (api.getSlideInterval() / 1000);
+  presentationLength = config.duration / (config.slide_interval / 1000);
   insertIndex = Math.floor((Math.random() * presentationLength));
   restoreIndex = activeIndex + insertIndex;
-  insertTime = insertIndex * api.getSlideInterval();
-  restoreTime = (insertIndex + 1) * api.getSlideInterval();
+  insertTime = insertIndex * config.slide_interval;
+  restoreTime = (insertIndex + 1) * config.slide_interval;
 
   if (insertIndex == 0) {
     // insert after the transition time so goTo won't abort.
