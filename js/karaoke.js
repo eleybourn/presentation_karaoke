@@ -24,7 +24,8 @@ var supersized_setup = {
 
 	// Components
 	slide_links: 'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
-	slides     : slides
+	slides     : slides,
+  guaranteedSlides : guaranteedSlides
 };
 
 function translate() {
@@ -144,15 +145,18 @@ $(document).ready(function() {
 
 // Insert a jump to a random guaranteed image at a random point in the presentation.
 function insert_random_guaranteed(){
+  if (supersized_setup['guaranteedSlides'].length == 0) {
+    return false;
+  }
   activeIndex = vars.current_slide;
   if (isNaN(activeIndex)) {
     activeIndex = 0;
   }
-  presentationLength = $("#duration").val() / (api.getSlideInterval() / 1000);
+  presentationLength = config.duration / (config.slide_interval / 1000);
   insertIndex = Math.floor((Math.random() * presentationLength));
   restoreIndex = activeIndex + insertIndex;
-  insertTime = insertIndex * api.getSlideInterval();
-  restoreTime = (insertIndex + 1) * api.getSlideInterval();
+  insertTime = insertIndex * config.slide_interval;
+  restoreTime = (insertIndex + 1) * config.slide_interval;
 
   if (insertIndex == 0) {
     // insert after the transition time so goTo won't abort.

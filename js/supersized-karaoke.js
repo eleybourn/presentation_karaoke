@@ -306,10 +306,6 @@
 
     	};
 
-    base.getSlideInterval = function(){
-      return base.options.slide_interval;
-    };
-
 
         /* Resize Images
 		----------------------------*/
