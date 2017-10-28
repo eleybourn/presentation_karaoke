@@ -391,6 +391,42 @@ function pick_topic() {
   $("#your_topic").quickfit({max:30});
 }
 
+// Insert a jump to a random guaranteed image at a random point in the presentation.
+function insert_random_guaranteed(){
+  activeIndex = vars.current_slide;
+  if (isNaN(activeIndex)) {
+    activeIndex = 0;
+  }
+  presentationLength = $("#duration").val() / (api.getSlideInterval() / 1000);
+  insertIndex = Math.floor((Math.random() * presentationLength));
+  restoreIndex = activeIndex + insertIndex;
+  insertTime = insertIndex * api.getSlideInterval();
+  restoreTime = (insertIndex + 1) * api.getSlideInterval();
+
+  if (insertIndex == 0) {
+    // insert after the transition time so goTo won't abort.
+    insertTime += 500;
+    // restore later so the picture stays the full amount of time.
+    restoreTime += 500;
+  }
+
+  console.log('activeIndex: ' + activeIndex);
+  console.log('insertIndex: ' + insertIndex);
+  console.log('restoreIndex: ' + restoreIndex);
+  console.log('insertTime: ' + insertTime);
+  console.log('restoreTime: ' +  restoreTime);
+
+  /* jump to random guaranteed image */
+  setTimeout(function(){
+    api.goToRandomGuaranteed();
+  }, insertTime);
+
+  /* jump back */
+  setTimeout(function() {
+    api.goTo(restoreIndex);
+  }, restoreTime);
+}
+
 function play_pk() {
   $("#count_down")[0].style.display = "block";
   $("#play")[0].style.display = "none";
@@ -401,6 +437,9 @@ function play_pk() {
   setTimeout(function(){
 	$("#count_down").text(1);
 	api.nextSlide();
+	// Do this here so the most recent value of current_slide is obtained.
+	// Prevents slide repeats caused by restoring to a previously seen image.
+	insert_random_guaranteed();
   }, 2000);
   setTimeout(function(){
 	$("#count_down")[0].style.display = "none";

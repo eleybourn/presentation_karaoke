@@ -53,9 +53,10 @@
 				markers = '',
 				markerContent,
 				thumbMarkers = '',
-				thumbImage;
+				thumbImage,
+        allSlides = base.options.slides.concat(base.options.guaranteedSlides);
 				
-			while(thisSlide <= base.options.slides.length-1){
+			while(thisSlide <= allSlides.length -1){
 				//Determine slide link content
 				switch(base.options.slide_links){
 					case 'num':
@@ -76,7 +77,7 @@
 					if (base.options.slide_links)markers = markers+'<li class="slide-link-'+thisSlide+' current-slide"><a>'+markerContent+'</a></li>';
 					// Slide Thumbnail Links
 					if (base.options.thumb_links){
-						base.options.slides[thisSlide].thumb ? thumbImage = base.options.slides[thisSlide].thumb : thumbImage = base.options.slides[thisSlide].image;
+						allSlides[thisSlide].thumb ? thumbImage = allSlides[thisSlide].thumb : thumbImage = allSlides[thisSlide].image;
 						thumbMarkers = thumbMarkers+'<li class="thumb'+thisSlide+' current-thumb"><img src="'+thumbImage+'"/></li>';
 					};
 				}else{
@@ -84,7 +85,7 @@
 					if (base.options.slide_links) markers = markers+'<li class="slide-link-'+thisSlide+'" ><a>'+markerContent+'</a></li>';
 					// Slide Thumbnail Links
 					if (base.options.thumb_links){
-						base.options.slides[thisSlide].thumb ? thumbImage = base.options.slides[thisSlide].thumb : thumbImage = base.options.slides[thisSlide].image;
+						allSlides[thisSlide].thumb ? thumbImage = allSlides[thisSlide].thumb : thumbImage = allSlides[thisSlide].image;
 						thumbMarkers = thumbMarkers+'<li class="thumb'+thisSlide+'"><img src="'+thumbImage+'"/></li>';
 					};
 				}
@@ -137,8 +138,9 @@
 			// Shuffle slide order if needed		
 			if (base.options.random){
 				arr = base.options.slides;
+        vars.original_slide_length = arr.length;
 				for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);	// Fisher-Yates shuffle algorithm (jsfromhell.com/array/shuffle)
-			    base.options.slides = arr;
+			    base.options.slides = arr.concat(base.options.guaranteedSlides);
 			}
 			
 			/*-----Load initial set of images-----*/
@@ -303,6 +305,10 @@
 			});
     		
     	};
+
+    base.getSlideInterval = function(){
+      return base.options.slide_interval;
+    };
         
         
         /* Resize Images
@@ -517,7 +523,8 @@
 				
 			}
 			
-			
+	    console.log('current: ' + vars.current_slide);		
+        
 			
 			/*-----End Load Image-----*/
 			
@@ -592,6 +599,7 @@
 			/*-----Load Image-----*/
 			
 			loadSlide = vars.current_slide;
+      console.log('loadslide; ' + loadSlide);
 			
 			var targetList = base.el+' li:eq('+loadSlide+')';
 			if (!$(targetList).html()){
@@ -699,11 +707,24 @@
     		
     	};
     	
+    	/* Go to random guaranteed slide
+		----------------------------*/
+      base.goToRandomGuaranteed = function(){
+        // base.goTo() starts counting from 1
+        slideIndex = Math.ceil(Math.random() * base.options.guaranteedSlides.length + vars.original_slide_length);
+        console.log('bozz slide number: ' + slideIndex);
+        if (base.goTo(slideIndex) == false) {
+          console.log('goTo failed');
+        }
+      };
     	
     	/* Go to specific slide
 		----------------------------*/
     	base.goTo = function(targetSlide){
-			if (vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
+			if (vars.in_animation || !api.options.slideshow) {
+        console.log('animating');
+        return false;		// Abort if currently animating
+      }
 			
 			var totalSlides = base.options.slides.length;
 			
@@ -721,6 +742,7 @@
 			if (typeof theme != 'undefined' && typeof theme.goTo == "function" ) theme.goTo();
 			
 			if (vars.current_slide == totalSlides - targetSlide){
+        console.log('goTo: current: ' + vars.current_slide);
 				if(!(vars.is_paused)){
 					vars.slideshow_interval = setInterval(base.nextSlide, base.options.slide_interval);
 				} 
@@ -729,7 +751,6 @@
 			
 			// If ahead of current position
 			if(totalSlides - targetSlide > vars.current_slide ){
-				
 				// Adjust for new next slide
 				vars.current_slide = totalSlides-targetSlide-1;
 				vars.update_images = 'next';
@@ -740,7 +761,10 @@
 				
 				// Adjust for new prev slide
 				vars.current_slide = totalSlides-targetSlide+1;
-				vars.update_images = 'prev';
+        // for Presentation karaoke, we want to continue forward after jumping back
+        // to the range of randomized images. Load the next image to prevent
+        // an empty list item from displaying.
+				vars.update_images = 'next';
 			    base._placeSlide(vars.update_images);
 			    
 			}
@@ -762,6 +786,7 @@
         /* Place Slide
 		----------------------------*/
         base._placeSlide = function(place){
+          console.log('placeslide start: ' + vars.current_slide);
     			
 			// If links should open in new window
 			var linkTarget = base.options.new_window ? ' target="_blank"' : '';
@@ -788,6 +813,7 @@
 						base.resizeNow();
 					});	// End Load
 				};
+        console.log('placeslide end: ' + vars.current_slide);
 				
 				base.nextSlide();
 				
@@ -811,6 +837,7 @@
 						base.resizeNow();
 					});	// End Load
 				};
+        console.log('placeslide end prev: ' + vars.current_slide);
 				base.prevSlide();
 			}
 			
@@ -881,7 +908,8 @@
 		hover_pause				:	false,		// If slideshow is paused from hover
 		slideshow_interval		:	false,		// Stores slideshow timer					
 		update_images 			: 	false,		// Trigger to update images after slide jump
-		options					:	{}			// Stores assembled options list
+		options					:	{},			// Stores assembled options list
+    original_slide_length: 0  // Length of non bozz slide array
 		
 	};
 	
