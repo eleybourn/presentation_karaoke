@@ -71,17 +71,17 @@ var topics = {
 var my_topics = [];
 
 jQuery(function($){
-	
+
 	$.supersized({
 		random                  :   1,			// Start slide (0 is random)
 		fit_always				:   1,
-	
+
 		// Functionality
 		slide_interval          :   10000,		// Length between transitions
 		transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
 		transition_speed		:	500,		// Speed of transition
-												   
-		// Components							
+
+		// Components
 		slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
 		slides 					:  	[			// Slideshow Images
            {image : './slides/1-1260977459Qiyi.jpg', title : 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)', url : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'},
@@ -367,8 +367,12 @@ jQuery(function($){
            {image : './slides_unval/wormhole.jpg', title : 'Unknown', url : ''},
            {image : './slides_unval/wrong_way.jpg', title : 'Unknown', url : ''},
            {image : './slides_unval/young_hero.jpg', title : 'Unknown', url : ''},
-		   ]
-		
+		   ],
+       guaranteedSlides: [
+         {image : './slides/prata-bozz.jpg', title : 'Prata Bozz', url : ''},
+         {image : './slides/cupcake-bozz.jpg', title : 'Cupcake Bozz', url : ''},
+       ]
+
 	});
 });
 
@@ -387,6 +391,42 @@ function pick_topic() {
   $("#your_topic").quickfit({max:30});
 }
 
+// Insert a jump to a random guaranteed image at a random point in the presentation.
+function insert_random_guaranteed(){
+  activeIndex = vars.current_slide;
+  if (isNaN(activeIndex)) {
+    activeIndex = 0;
+  }
+  presentationLength = $("#duration").val() / (api.getSlideInterval() / 1000);
+  insertIndex = Math.floor((Math.random() * presentationLength));
+  restoreIndex = activeIndex + insertIndex;
+  insertTime = insertIndex * api.getSlideInterval();
+  restoreTime = (insertIndex + 1) * api.getSlideInterval();
+
+  if (insertIndex == 0) {
+    // insert after the transition time so goTo won't abort.
+    insertTime += 500;
+    // restore later so the picture stays the full amount of time.
+    restoreTime += 500;
+  }
+
+  console.log('activeIndex: ' + activeIndex);
+  console.log('insertIndex: ' + insertIndex);
+  console.log('restoreIndex: ' + restoreIndex);
+  console.log('insertTime: ' + insertTime);
+  console.log('restoreTime: ' +  restoreTime);
+
+  /* jump to random guaranteed image */
+  setTimeout(function(){
+    api.goToRandomGuaranteed();
+  }, insertTime);
+
+  /* jump back */
+  setTimeout(function() {
+    api.goTo(restoreIndex);
+  }, restoreTime);
+}
+
 function play_pk() {
   $("#count_down")[0].style.display = "block";
   $("#play")[0].style.display = "none";
@@ -397,6 +437,9 @@ function play_pk() {
   setTimeout(function(){
 	$("#count_down").text(1);
 	api.nextSlide();
+	// Do this here so the most recent value of current_slide is obtained.
+	// Prevents slide repeats caused by restoring to a previously seen image.
+	insert_random_guaranteed();
   }, 2000);
   setTimeout(function(){
 	$("#count_down")[0].style.display = "none";
