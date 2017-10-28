@@ -367,7 +367,11 @@ jQuery(function($){
            {image : './slides_unval/wormhole.jpg', title : 'Unknown', url : ''},
            {image : './slides_unval/wrong_way.jpg', title : 'Unknown', url : ''},
            {image : './slides_unval/young_hero.jpg', title : 'Unknown', url : ''},
-		   ]
+		   ],
+       guaranteedSlides: [
+         {image : './slides/prata-bozz.jpg', title : 'Prata Bozz', url : ''},
+         {image : './slides/cupcake-bozz.jpg', title : 'Cupcake Bozz', url : ''},
+       ]
 		
 	});
 });
