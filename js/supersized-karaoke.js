@@ -38,7 +38,7 @@
         	// Combine options and vars
         	$.supersized.vars = $.extend($.supersized.vars, $.supersized.themeVars);
         	$.supersized.vars.options = $.extend({},$.supersized.defaultOptions, $.supersized.themeOptions, options);
-            base.options = $.supersized.vars.options;
+          base.options = $.supersized.vars.options;
 
             base._build();
         };
@@ -214,7 +214,7 @@
 			$('.load-item').show();
 
 			// Keyboard Navigation
-			if (keyboard_nav){
+			if (base.options.keyboard_nav){
 				$(document.documentElement).keyup(function (event) {
 
 					if(vars.in_animation) return false;		// Abort if currently animating
@@ -710,8 +710,8 @@
     	/* Go to random guaranteed slide
 		----------------------------*/
       base.goToRandomGuaranteed = function(){
-        // base.goTo() starts counting from 1
-        slideIndex = Math.ceil(Math.random() * base.options.guaranteedSlides.length + vars.original_slide_length);
+        // base.goTo() starts counting from 1 
+        slideIndex = Math.ceil(Math.random() * guaranteedSlides.length + vars.original_slide_length);
         console.log('bozz slide number: ' + slideIndex);
         if (base.goTo(slideIndex) == false) {
           console.log('goTo failed');
