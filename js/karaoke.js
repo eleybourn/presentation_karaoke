@@ -160,9 +160,9 @@ function insert_random_guaranteed(){
 
   if (insertIndex == 0) {
     // insert after the transition time so goTo won't abort.
-    insertTime += 500;
+    insertTime += config.transition_speed;
     // restore later so the picture stays the full amount of time.
-    restoreTime += 500;
+    restoreTime += config.transition_speed;
   }
 
   console.log('activeIndex: ' + activeIndex);
