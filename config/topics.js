@@ -65,6 +65,10 @@ var topics = {
 		"Your weekend",
 		"Zeppelins and Airships",
 	],
+	'Business': [
+		'Add your own topics',
+		'One per line',
+	],
 	'Freeform': [
 		'Add your own topics',
 		'One per line',
