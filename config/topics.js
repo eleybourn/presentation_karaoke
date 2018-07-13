@@ -101,7 +101,6 @@ var topics = {
 		"Your last holiday",
 		"Your weekend",
 		"Zeppelins and Airships",
-    "Working in Gungahlin",
     "Working in Government",
     "Shared Services",
     "Your Favourite Customer",
