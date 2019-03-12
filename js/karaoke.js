@@ -54,6 +54,8 @@ function translate() {
 
 function load_groups() {
 	var groups = Object.keys(topics);
+  groups.push('Kitchen Sink');
+  groups.push('Freeform');
 
 	for (var key in groups) {
 		var group = groups[key];
@@ -69,9 +71,29 @@ function load_groups() {
 }
 
 function load_topics(group) {
-	$('#topics').html('<li>' + topics[group].join('<li>'));
-	my_topics = topics[group];
+  thisHTML = "";
+  my_topics = [];
+  if (group == "Kitchen Sink") {
+    for (var thisGroup in topics) {
+      for (var thisTopic in topics[thisGroup]) {
+        thisHTML += '<li>' + topics[thisGroup][thisTopic] + '</li>';
+        my_topics.push(topics[thisGroup][thisTopic]);
+      }
+    }
+    $('#topics').html(thisHTML);
+  } else if (group == "Freeform") {
+    $('#topics').html('<textarea name="Freeform" id="Freeform" style="width:100%;" rows=10 onkeyup="loadFreeform()"/>');
+  } else {
+    $('#topics').html('<li>' + topics[group].join('<li>'));
+    my_topics = topics[group];
+  }
 }
+
+function loadFreeform(){
+  var list = $('#Freeform')[0].value;
+  my_topics = list.split("\n");
+}
+
 
 function restart() {
 	$('.container').hide();
@@ -115,7 +137,7 @@ function play_slides() {
 	setTimeout(function() {
 		$('.container').hide();
 		api.playToggle();
-		restart();
+		pick_topic();
 	}, (config.duration * 1000) + 8000);
 }
 
@@ -129,7 +151,7 @@ $(document).ready(function() {
 	$('input[name=group]').change(function() {
 		load_topics($(this).val());
 	});
-
+  
 	$('#go').click(function() {
 		pick_topic();
 	});
