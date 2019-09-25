@@ -1,482 +1,734 @@
-var slides = [			// Slideshow Images
-	{
-		image: './slides/1-1260977459Qiyi.jpg',
-		title: 'junge Frau Musikhören mit Kopfhörern  - Image Credit: Petr Kratochvil (public domain)',
-		url  : 'http://www.publicdomainpictures.net/view-image.php?image=4860&picture=musik-horen&large=1'
-	},
-	{image: './slides/2015-10-30 14.40.12.jpg', title: 'The winning marshmallow - Image Credit: Evan Leybourn', url: ''},
-	{image: './slides_unval/guzzle-buddy-drinking-wine.jpg', title: 'Guzzle Buddy - Image Credit: Guzzle Buddy', url: 'http://www.guzzlebuddy.com/'},
-	{image: './slides/3000_books.jpg', title: '3000 books - Image Credit: Unknown', url: ''},
-	{image: './slides/3671171673_2e9acc5990.jpg', title: 'You\'ll never get to work on time - Image Credit: Unknown', url: ''},
-	{
-		image: './slides/4053123799_23189bc35b_o.jpg',
-		title: 'Squirrel - Image Credit: Tomi Tapio K ',
-		url  : 'https://www.flickr.com/photos/tomitapio/4053123799'
-	},
-	{image: './slides/7024187467_c48e73f368_o.png', title: 'Feel like a Sir - Image Credit: wberry', url: ''},
-	{image: './slides/all_for_one.jpg', title: 'All for one - Image Credit: Unknown', url: ''},
-	{image: './slides/another_way.jpg', title: 'Another Way - Image Credit: Unknown', url: ''},
-	{image: './slides/bananas.jpg', title: 'Banana\'s - Image Credit: Unknown', url: ''},
-	{
-		image: './slides/brain_70.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{image: './slides/chair.jpg', title: 'Chair - Image Credit: Unknown', url: ''},
-	{
-		image: './slides/curtain-812223_1920.jpg',
-		title: 'To be continued - Image Credit: CC0 ',
-		url  : 'https://pixabay.com/en/curtain-cinema-theater-stage-font-812223/'
-	},
-	{
-		image: './slides/fitness-1208141_1920.jpg',
-		title: 'You can do much more - Image Credit: CC0 ',
-		url  : 'https://pixabay.com/en/fitness-motivation-healthy-1208141/'
-	},
-	{
-		image: './slides/globe-1029211_1920.jpg',
-		title: 'globe - Image Credit: CC0 ',
-		url  : 'https://pixabay.com/en/globe-australia-continents-earth-1029211/'
-	},
-	{
-		image: './slides/image302.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/lack_access.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/o_1ad8ggptd1sf91nqr1qdbp4d1a3l7_new.jpg',
-		title: 'Black cat looking at you - Image Credit: CC0 ',
-		url  : 'http://kaboompics.com/one_foto/1211/black-cat-looking-at-you'
-	},
-	{
-		image: './slides/o_1adegiectg351o0k1sp51qitmdd7_new.jpg',
-		title: 'Full frame background showing lots of old metallic nails - Image Credit: CC0 ',
-		url  : 'http://kaboompics.com/one_foto/1404/full-frame-background-showing-lots-of-old-metallic-nails'
-	},
-	{
-		image: './slides/o_1adh74vggkao1fej6f297c1hnf7_new.jpg',
-		title: 'Coffee time - Image Credit: CC0 ',
-		url  : 'http://kaboompics.com/one_foto/1405/coffee-time'
-	},
-	{
-		image: './slides/o_1adl6sdg918c9120vb4g3ka1se7_new.jpg',
-		title: 'Sushi on a black plate and black background - Image Credit: CC0 ',
-		url  : 'http://kaboompics.com/one_foto/1406/sushi-on-a-black-plate-and-black-background'
-	},
-	{
-		image: './slides/o_1ae0lg0aj1vgb3us1i7edl81mc07_new.jpg',
-		title: 'Top view of opened Notes and Apple iPhone 6 - Image Credit: CC0 ',
-		url  : 'http://kaboompics.com/one_foto/1412/top-view-of-opened-notes-and-apple-iphone-6'
-	},
-	{
-		image: './slides/PDCA-Cycle.png',
-		title: 'PDCA - Image Credit: By Manee',
-		url  : 'Kowat, FAL, https://commons.wikimedia.org/w/index.php?curid=12518982'
-	},
-	{
-		image: './slides/Picture26.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture27.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture28.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture29.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture30.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture31.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture32.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture33.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture34.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture35.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture36.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture37.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture38.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture40.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture41.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/Picture42.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{
-		image: './slides/tumblr_nvup8h1pon1sfie3io1_1280.jpg',
-		title: 'NOTHING LIKE A COKE - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/txstate-library/20328546371/'
-	},
-	{
-		image: './slides/tumblr_nzgoh9EGLk1sfie3io1_1280.jpg',
-		title: 'IMAGE TAKEN FROM PAGE 241 OF ‘HISTOIRE DE LA VILLE MONTDIDIER. [WITH PLATES.]’ - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/britishlibrary/11236219295/'
-	},
-	{
-		image: './slides/tumblr_nzom3x4APz1sfie3io1_500.jpg',
-		title: 'THREE SKELETONS AT THE PIANO - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/nationalarchives/8141311057/'
-	},
-	{
-		image: './slides/tumblr_o04s4kpzgp1sfie3io1_1280.jpg',
-		title: 'MISSION CONTROL DURING APOLLO 10 - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/nasacommons/23658364679/'
-	},
-	{
-		image: './slides/tumblr_o0rbiv4Vl81sfie3io1_1280.jpg',
-		title: 'Illustrated front cover from The Queenslander, November 28, 1929 - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/statelibraryqueensland/22792403226/'
-	},
-	{
-		image: './slides/tumblr_o1ddoruNcq1sfie3io1_1280.jpg',
-		title: 'INTERPRETING X-RAYS - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/csj_canada_archives/16087498781/'
-	},
-	{
-		image: './slides/tumblr_o1denuvstb1sfie3io1_1280.jpg',
-		title: 'KATALOGER - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/95520404@N07/15779206468/'
-	},
-	{
-		image: './slides/tumblr_o1ulvp0wA51sfie3io1_1280.jpg',
-		title: 'APOLLO 14 LAUNCH - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/nasacommons/9460207364/'
-	},
-	{
-		image: './slides/tumblr_o1ulvtxCMk1sfie3io1_1280.jpg',
-		title: 'EDVARD GRIEG AT THE PIANO - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/bergen_public_library/3469861465/'
-	},
-	{
-		image: './slides/tumblr_o1ulw9iigb1sfie3io1_1280.jpg',
-		title: 'THE POSTMAN ON HIS ROUND IN THE MOUNTAINS BETWEEN TREGARON AND ABERGWESYN - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/llgc/6346813233/'
-	},
-	{
-		image: './slides/tumblr_o2mhflJtUT1sfie3io1_1280.jpg',
-		title: '4/64. ANCHORAGE FOURTH AVE. GRABEN. SEE PHOTOS 527,882,301A, 621 - LOOKING EAST - Image Credit: no known copyright restrictions',
-		url  : 'https://www.flickr.com/photos/usnationalarchives/24822219172/'
-	},
-	{
-		image: './slides/tumblr_o2mhgbuxDM1sfie3io1_1280.jpg',
-		title: 'Governor Mark Warner visits Claremont after Hurricane Isabel\'s destruction - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/library_of_virginia/21264526534/'
-	},
-	{
-		image: './slides/tumblr_o3gw145wnT1sfie3io1_1280.jpg',
-		title: 'ORBITAL SUNRISE WITH VENUS AND MARS - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/nasacommons/9458244245/'
-	},
-	{
-		image: './slides/tumblr_o3gw1cEHCL1sfie3io1_1280.jpg',
-		title: 'Protest meeting at Beresford Place, and the arrest of Count Plunkett - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/nlireland/25032356429/'
-	},
-	{
-		image: './slides/tumblr_o3gw1fNLIQ1sfie3io1_1280.jpg',
-		title: 'Pearl diver collecting shells from the beds of Torres Strait, Queensland / Frank Hurley - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/national_library_of_australia_commons/25269617161/'
-	},
-	{
-		image: './slides/tumblr_o3ygfkd8Rr1sfie3io1_1280.jpg',
-		title: 'Ballaghbema Pass, Glencar, Co. Kerry - Image Credit: no known copyright restrictions ',
-		url  : 'https://www.flickr.com/photos/nlireland/25581862336/'
-	},
-	{
-		image: './slides/your_blood.jpg',
-		title: 'Did You Know  - Image Credit: Karl Fisch, Scott McLeod, and XPLANE (CC BY-NC-SA)',
-		url  : 'https://shifthappens.wikispaces.com'
-	},
-	{image: './slides_unval/baby_butt.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/band.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/beaver_fail.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/beaver_in_danger.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/bite_the_hand.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/bottle_beach.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/brain.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/burning_car.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/burning_witches.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/chicken_flowchart.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/china_english.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/circles_of_change.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/clockwork.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/cobb_house.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/coding_bunny.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/cognitive_load.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/computer_tombstone.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/consistency.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/coopetition.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/curled_statue.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/days_since_last_injury.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/decentralized_network.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/discarded_cell_phones.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/done.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/dont_panic.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/dont_touch.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/do_one_thing_today.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/dream_big.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/drunk_mice.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/earth_eats_moon.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/ekg.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/emotion_faces.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/facepalm.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/factory.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/fake_it.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/fireman_photo.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/florida.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/forget_grammar.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/gold_coins.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/handshake.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/happy_buddha.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/hardhat.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/hate_you.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/heart_fields.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/hierarchical_Org_Chart.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/hqdefault.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/hypothesis_testing.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image206.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image207.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image208.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image210.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image211.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image212.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image213.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image216.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image219.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image220.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image221.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image231.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image233.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image239.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image240.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image244.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image254.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image260.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image266.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image268.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image271.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image275.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image278.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image281.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image282.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image284.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image286.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image287.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image288.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image289.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image291.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image297.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image298.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image300.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image301.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image303.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image308.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image309.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image310.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image311.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image316.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image317.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image318.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image319.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image320.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image322.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image323.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image324.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image328.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/image330.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image335.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/image337.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/i_quit.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/jellyfish.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/kapow.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/key_map.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/kolb.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/learning_methods.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/Leave_a_Legacy.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/lego_death.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/lemons_correlation.gif', title: 'Unknown', url: ''},
-	{image: './slides_unval/love_pain.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/low_risk.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/many_books.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/match.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/metrics_dartboard.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/metronome.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/mob_programming.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/more.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/My_Name_Is_Irrelevant.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/new_experience.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/no_Bugs.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/no_pants.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/own_your_destiny.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/pain_of_regret.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/path_more_travelled.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/people_first.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/pexels-photo.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/phone_and_laptop.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/phone_box.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture10.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture11.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture12.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture13.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture14.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture15.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture16.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture17.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture18.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture19.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture2.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture20.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture21.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture22.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture23.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture25.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture3.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture4.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture43.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture44.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture45.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture46.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture47.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture48.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture49.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture5.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture50.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture51.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture6.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture7.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture8.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Picture9.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/pile_of_paper.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/pill_in_reflection.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/plan_b.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/public-domain-images-free-stock-photos-animals-farm-horses-1000x668.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/public-domain-images-free-stock-photos-bicycle-bike-black-and-white-1000x667.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/quote_1.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/random_funny___2_by_guppy22-d5irouc.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/reduce_risk.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/red_pill.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/refactoring_fail.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/santa_tomb.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/serve.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/sharks.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/sign_not_in_use.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/sleepy_drawings.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/soldiers.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/stages_of_proficiency.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/starbucks_cups.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/stonework.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/straw_camel.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/stretch_mind.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/striped_pants.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/suitcase_organizer.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/teamwork.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/test_tubes.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/text_on_bike.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/think_pair_share.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/thirst.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/three_fingers.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/thumbs_up.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/tied_up.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/trustworthy.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/Value.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/value_stacking.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/valve_org_charts.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/wait.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/waterfall.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/wearing_pants_men.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/web20.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/what_is_leadership.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/where_we_come_from.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/whisky.jpeg', title: 'Unknown', url: ''},
-	{image: './slides_unval/why_bother.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/world_changing.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/wormhole.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/wrong_way.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/young_hero.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image1-fsppftjqo1.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image4-zeqjykn0ls.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image6-fmtbu3azkg.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image8-7e6lqoy9lj.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image17-gtjcuzwo0k.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image19-w4px8e3kso.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image23-pd1nqhakll.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image26-hukbcwzwrr.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image33-li67vxpogm.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image34-ivsuj8gy2s.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/140427-apps-news-the-best-and-most-famous-internet-memes-around-image37-87kjmgtukv.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/7797710-1x1-340x340.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/748329472.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/blank-meme-template-001-ancient-aliens.png', title: 'Unknown', url: ''},
-	{image: './slides_unval/19r3hx.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/meme1.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/preview-16747860-650x341-98-1509106695.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/gli-scoiattoli-6.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/hidethepainharold.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/cptpicardmeme-1.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/funny-pretty-animals.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/b5C3nasnJzFOgmcBsh56_fox.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/sdklfdsnfks.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/22222103858_6b0c4cbe67.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/frisbee-dog-bite-face-funny1.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/surprising_friends (19).jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/most-surprising-photos-of-2014-438.jpg', title: 'Unknown', url: ''},
-	{image: './slides_unval/ca34d7073c9236d4f7fc7dccf3518503.jpg', title: 'Unknown', url: ''},
+var slides = [
+  {
+    "image": "./slides/slide97.jpeg",
+    "title": "./slides/slide97.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide3.jpg",
+    "title": "./slides/slide3.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide81.jpeg",
+    "title": "./slides/slide81.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide111.jpeg",
+    "title": "./slides/slide111.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide146.jpeg",
+    "title": "./slides/slide146.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide2.jpg",
+    "title": "./slides/slide2.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide150.jpeg",
+    "title": "./slides/slide150.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide107.jpeg",
+    "title": "./slides/slide107.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide127.jpeg",
+    "title": "./slides/slide127.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide131.jpeg",
+    "title": "./slides/slide131.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide1.jpg",
+    "title": "./slides/slide1.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide5.jpg",
+    "title": "./slides/slide5.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide4.jpg",
+    "title": "./slides/slide4.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide130.jpeg",
+    "title": "./slides/slide130.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide126.jpeg",
+    "title": "./slides/slide126.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide106.jpeg",
+    "title": "./slides/slide106.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide151.jpeg",
+    "title": "./slides/slide151.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide6.jpg",
+    "title": "./slides/slide6.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide147.jpeg",
+    "title": "./slides/slide147.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide110.jpeg",
+    "title": "./slides/slide110.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide7.jpg",
+    "title": "./slides/slide7.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide96.jpeg",
+    "title": "./slides/slide96.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide16.jpg",
+    "title": "./slides/slide16.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide121.jpeg",
+    "title": "./slides/slide121.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide178.jpg",
+    "title": "./slides/slide178.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide137.jpeg",
+    "title": "./slides/slide137.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide179.png",
+    "title": "./slides/slide179.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide17.jpg",
+    "title": "./slides/slide17.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide29.jpg",
+    "title": "./slides/slide29.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide15.jpg",
+    "title": "./slides/slide15.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide91.jpeg",
+    "title": "./slides/slide91.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide87.jpeg",
+    "title": "./slides/slide87.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide117.jpeg",
+    "title": "./slides/slide117.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide140.jpeg",
+    "title": "./slides/slide140.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide156.jpeg",
+    "title": "./slides/slide156.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide101.jpeg",
+    "title": "./slides/slide101.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide14.jpg",
+    "title": "./slides/slide14.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide28.jpg",
+    "title": "./slides/slide28.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide10.jpg",
+    "title": "./slides/slide10.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide38.jpg",
+    "title": "./slides/slide38.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide100.jpeg",
+    "title": "./slides/slide100.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide157.jpeg",
+    "title": "./slides/slide157.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide181.jpg",
+    "title": "./slides/slide181.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide141.jpeg",
+    "title": "./slides/slide141.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide116.jpeg",
+    "title": "./slides/slide116.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide180.png",
+    "title": "./slides/slide180.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide86.jpeg",
+    "title": "./slides/slide86.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide39.jpg",
+    "title": "./slides/slide39.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide11.jpg",
+    "title": "./slides/slide11.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide90.jpeg",
+    "title": "./slides/slide90.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide13.png",
+    "title": "./slides/slide13.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide169.jpg",
+    "title": "./slides/slide169.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide168.jpg",
+    "title": "./slides/slide168.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide136.jpeg",
+    "title": "./slides/slide136.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide120.jpeg",
+    "title": "./slides/slide120.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide12.jpg",
+    "title": "./slides/slide12.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide23.jpg",
+    "title": "./slides/slide23.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide37.jpg",
+    "title": "./slides/slide37.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide158.jpeg",
+    "title": "./slides/slide158.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide171.jpg",
+    "title": "./slides/slide171.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide165.jpg",
+    "title": "./slides/slide165.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide119.jpeg",
+    "title": "./slides/slide119.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide89.jpeg",
+    "title": "./slides/slide89.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide164.jpg",
+    "title": "./slides/slide164.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide170.jpg",
+    "title": "./slides/slide170.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide135.jpeg",
+    "title": "./slides/slide135.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide123.jpeg",
+    "title": "./slides/slide123.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide36.jpg",
+    "title": "./slides/slide36.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide22.jpg",
+    "title": "./slides/slide22.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide34.jpg",
+    "title": "./slides/slide34.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide103.jpeg",
+    "title": "./slides/slide103.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide154.jpeg",
+    "title": "./slides/slide154.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide20.png",
+    "title": "./slides/slide20.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide142.jpeg",
+    "title": "./slides/slide142.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide166.jpg",
+    "title": "./slides/slide166.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide172.jpg",
+    "title": "./slides/slide172.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide115.jpeg",
+    "title": "./slides/slide115.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide85.jpeg",
+    "title": "./slides/slide85.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide173.jpg",
+    "title": "./slides/slide173.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide167.jpg",
+    "title": "./slides/slide167.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide139.jpeg",
+    "title": "./slides/slide139.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide21.jpg",
+    "title": "./slides/slide21.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide93.jpeg",
+    "title": "./slides/slide93.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide35.jpg",
+    "title": "./slides/slide35.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide31.jpg",
+    "title": "./slides/slide31.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide92.jpeg",
+    "title": "./slides/slide92.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide19.jpg",
+    "title": "./slides/slide19.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide25.png",
+    "title": "./slides/slide25.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide138.jpeg",
+    "title": "./slides/slide138.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide163.jpg",
+    "title": "./slides/slide163.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide177.jpg",
+    "title": "./slides/slide177.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide84.jpeg",
+    "title": "./slides/slide84.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide114.jpeg",
+    "title": "./slides/slide114.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide143.jpeg",
+    "title": "./slides/slide143.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide176.jpg",
+    "title": "./slides/slide176.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide162.jpg",
+    "title": "./slides/slide162.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide155.jpeg",
+    "title": "./slides/slide155.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide102.jpeg",
+    "title": "./slides/slide102.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide18.jpg",
+    "title": "./slides/slide18.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide24.jpg",
+    "title": "./slides/slide24.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide30.jpg",
+    "title": "./slides/slide30.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide26.jpg",
+    "title": "./slides/slide26.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide32.jpg",
+    "title": "./slides/slide32.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide122.jpeg",
+    "title": "./slides/slide122.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide174.jpg",
+    "title": "./slides/slide174.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide134.jpeg",
+    "title": "./slides/slide134.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide160.png",
+    "title": "./slides/slide160.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide88.jpeg",
+    "title": "./slides/slide88.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide118.jpeg",
+    "title": "./slides/slide118.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide161.jpg",
+    "title": "./slides/slide161.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide175.jpg",
+    "title": "./slides/slide175.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide27.png",
+    "title": "./slides/slide27.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide33.png",
+    "title": "./slides/slide33.png",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide159.jpeg",
+    "title": "./slides/slide159.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide40.jpg",
+    "title": "./slides/slide40.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide105.jpeg",
+    "title": "./slides/slide105.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide152.jpeg",
+    "title": "./slides/slide152.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide144.jpeg",
+    "title": "./slides/slide144.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide113.jpeg",
+    "title": "./slides/slide113.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide83.jpeg",
+    "title": "./slides/slide83.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide129.jpeg",
+    "title": "./slides/slide129.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide95.jpeg",
+    "title": "./slides/slide95.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide41.jpg",
+    "title": "./slides/slide41.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide109.jpeg",
+    "title": "./slides/slide109.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide43.jpg",
+    "title": "./slides/slide43.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide148.jpeg",
+    "title": "./slides/slide148.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide9.jpg",
+    "title": "./slides/slide9.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide8.jpg",
+    "title": "./slides/slide8.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide133.jpeg",
+    "title": "./slides/slide133.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide125.jpeg",
+    "title": "./slides/slide125.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide99.jpeg",
+    "title": "./slides/slide99.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide42.jpg",
+    "title": "./slides/slide42.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide98.jpeg",
+    "title": "./slides/slide98.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide124.jpeg",
+    "title": "./slides/slide124.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide132.jpeg",
+    "title": "./slides/slide132.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide149.jpeg",
+    "title": "./slides/slide149.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide108.jpeg",
+    "title": "./slides/slide108.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide45.jpg",
+    "title": "./slides/slide45.jpg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide94.jpeg",
+    "title": "./slides/slide94.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide128.jpeg",
+    "title": "./slides/slide128.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide82.jpeg",
+    "title": "./slides/slide82.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide112.jpeg",
+    "title": "./slides/slide112.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide145.jpeg",
+    "title": "./slides/slide145.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide153.jpeg",
+    "title": "./slides/slide153.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide104.jpeg",
+    "title": "./slides/slide104.jpeg",
+    "url": ""
+  },
+  {
+    "image": "./slides/slide44.jpg",
+    "title": "./slides/slide44.jpg",
+    "url": ""
+  }
 ];
 
 var guaranteedSlides = [

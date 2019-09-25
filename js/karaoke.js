@@ -54,8 +54,6 @@ function translate() {
 
 function load_groups() {
 	var groups = Object.keys(topics);
-  groups.push('Kitchen Sink');
-  groups.push('Freeform');
 
 	for (var key in groups) {
 		var group = groups[key];
@@ -71,29 +69,9 @@ function load_groups() {
 }
 
 function load_topics(group) {
-  thisHTML = "";
-  my_topics = [];
-  if (group == "Kitchen Sink") {
-    for (var thisGroup in topics) {
-      for (var thisTopic in topics[thisGroup]) {
-        thisHTML += '<li>' + topics[thisGroup][thisTopic] + '</li>';
-        my_topics.push(topics[thisGroup][thisTopic]);
-      }
-    }
-    $('#topics').html(thisHTML);
-  } else if (group == "Freeform") {
-    $('#topics').html('<textarea name="Freeform" id="Freeform" style="width:100%;" rows=10 onkeyup="loadFreeform()"/>');
-  } else {
-    $('#topics').html('<li>' + topics[group].join('<li>'));
-    my_topics = topics[group];
-  }
+	$('#topics').html('<li>' + topics[group].join('<li>'));
+	my_topics = topics[group];
 }
-
-function loadFreeform(){
-  var list = $('#Freeform')[0].value;
-  my_topics = list.split("\n");
-}
-
 
 function restart() {
 	$('.container').hide();
@@ -103,8 +81,10 @@ function restart() {
 function pick_topic() {
 	$('.container').hide();
 	$('#choose_topic').show();
-
-	var new_topic = my_topics[Math.floor(Math.random() * my_topics.length)];
+	
+	var topic_index = Math.floor(Math.random() * my_topics.length);
+	var new_topic = my_topics[topic_index];
+	my_topics.splice(topic_index, 1);
 
 	if (new_topic == $('#your_topic').text()) {
 		pick_topic();
@@ -137,7 +117,7 @@ function play_slides() {
 	setTimeout(function() {
 		$('.container').hide();
 		api.playToggle();
-		pick_topic();
+		restart();
 	}, (config.duration * 1000) + 8000);
 }
 
@@ -151,7 +131,7 @@ $(document).ready(function() {
 	$('input[name=group]').change(function() {
 		load_topics($(this).val());
 	});
-  
+
 	$('#go').click(function() {
 		pick_topic();
 	});
