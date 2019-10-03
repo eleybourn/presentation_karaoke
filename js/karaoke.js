@@ -104,7 +104,9 @@ function pick_topic() {
 	$('.container').hide();
 	$('#choose_topic').show();
 
-	var new_topic = my_topics[Math.floor(Math.random() * my_topics.length)];
+	var topic_index = Math.floor(Math.random() * my_topics.length);
+  var new_topic = my_topics[topic_index];
+  my_topics.splice(topic_index, 1);
 
 	if (new_topic == $('#your_topic').text()) {
 		pick_topic();
